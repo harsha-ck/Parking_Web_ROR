@@ -1,0 +1,31 @@
+
+<h2>Details</h2>
+
+<table class="dtable">
+  <thead>
+    <tr>
+      <th> Spots</th>
+      <th> Vehicle Type</th>
+      <th> Status</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @spots.each do |spot| %>
+      <tr style="<%= spot.status == true ? 'background-color: #ffffff;' : 'background-color: #90EE90;' %>">
+        <td> <%= spot.spots %> </td>
+        <td> <%= spot.vtype %> </td>
+        <td> <%= spot.status ? "Allotted" : "Free" %></td>
+        <td>
+          <a href="/spots/<%= spot.id %>" title="View"> <span class="icon">&#x1F441;</span></a>
+          <%= link_to raw("🖋️ "), edit_spot_path(spot.id), title: "Edit" %>
+          <%= link_to raw("🗑️"), spot_path(spot.id), title: "Delete", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+

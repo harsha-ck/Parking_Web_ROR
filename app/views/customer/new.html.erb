@@ -1,0 +1,94 @@
+
+<h2> Check in </h2>
+<p class="error"> <%= flash[:alert] %> </p>
+<%= form_with model: @customer, url: customer_index_path do |form| %>
+<p class="right"> * Required fields <p>
+  <div>
+    <%= form.label :Vehicle, "Vehicle Number " %><span class='error'>*</span><br>
+    <%= form.text_field :vnum, id: "vnum" %>
+    <% if @customer.errors.any? %>
+      <ul>
+        <% @customer.errors.full_messages.each do |message| %>
+          <li class="error"><%= message.gsub("Vnum", "Vehicle number") %></li>
+
+        <% end %>
+      </ul>
+
+<% end %>
+  </div><br>
+<%= form.label :Spot, "Select spot" %><span class='error'>*</span><br>
+<p> Two wheeler Spots</p>
+<% if @two.all?(&:status) %>
+    <p class="error">Full parking</p>
+<% else %>
+
+
+   <% @two.each do |spot| %>
+
+
+        <%= form.label :spots, spot.spots %>
+        <%= form.radio_button :spot_id, spot.id %>
+
+
+  <% end %>
+
+
+<% end %><br>
+<br>
+<p> Four wheeler Spots</p>
+<% if @four.all?(&:status) %>
+    <p class="error" >Full parking</p>
+<% else %>
+
+
+ <div >
+
+
+   <% @four.each do |spot| %>
+
+        <%= form.label :spots, value: spot.spots %>
+        <%= form.radio_button :spot_id, spot.id %>
+
+
+   <% end %>
+ </div></br>
+ <% end %></br>
+
+
+<div ><br>
+    <%= form.submit "Check in", id: "submit" %>
+  </div><br>
+
+
+
+
+</table>
+<br>
+<table class= "small_table">
+<thead>
+<tr>
+<th> Type </th>
+<th > Free Spots </th>
+<th > Allotted Spots </th>
+<th> Price </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Two wheeler </td>
+<td> <%= @free_two %></td>
+
+<td> <%= @allo_two %> </td>
+<td> ₹30 </td>
+</tr>
+ <tr>
+ <td> Four wheeler </td>
+ <td> <%= @free_four %> </td>
+
+ <td> <%= @allo_four %> </td>
+ <td> ₹50 </td>
+ </tr>
+</tbody>
+</table>
+<p>(Note: first ₹30 for first 2 hours and ₹20 per hour for 2 wheelers first ₹50 for first 2 hours and ₹30 per hour for 4 wheelers )</p>
+<% end %>

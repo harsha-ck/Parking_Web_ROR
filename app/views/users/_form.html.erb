@@ -1,0 +1,51 @@
+<%= form_with model: user do |form| %>
+  <div>
+  <p class="right"> * Required fields <p>
+    <%= form.label :uid, "User ID" %> <span class="error"> * </span><br>
+    <%= form.number_field :uid %>
+    <% @users.errors.full_messages_for(:uid).each do |message| %>
+          <p class="error">*<%= message.gsub("Uid", "User id") %></p>
+        <% end %>
+  </div><br>
+  <div>
+    <%= form.label :name, "Name" %><span class='error'>*</span><br>
+    <%= form.text_field :name %>
+    <% @users.errors.full_messages_for(:name).each do |message| %>
+        <br><div class="error">*<%= message.gsub("name", "Name") %></div>
+    <% end %>
+
+
+  </div><br>
+    <div>
+      <%= form.label :password_digest, "Password" %><span class='error'>*</span><br>
+      <%= form.password_field :password_digest %>
+      <% @users.errors.full_messages_for(:password_digest).each do |message| %>
+          <br><div class="error">*<%= message.gsub("Password digest", "Password") %></div>
+      <% end %>
+
+
+    </div><br>
+    <div>
+      <%= form.label :role, "Role" %><span class='error'>*</span><br>
+       Admin <%= form.radio_button :role, "admin" %>
+       user <%= form.radio_button :role, "user" %>
+
+      <% @users.errors.full_messages_for(:role).each do |message| %>
+          <br><div class="error">*<%= message.gsub("role", "Role") %></div>
+      <% end %>
+
+
+    </div><br>
+
+
+<% if @users.errors.include?(:base) %>
+    <p class="error">*<%= @user.errors[:base].first %> </p>
+  <% end %>
+
+
+  <div>
+      <%= form.submit %>
+  </div><br>
+<% end %>
+
+

@@ -1,0 +1,13 @@
+
+<h2> Confirmed </h2>
+<div class="spot-display">
+  <span class="output">Vehicle number: <%= @customers.vnum %></span><br>
+  <span class="output">Vehicle Type: <%= @customers.vtype %></span><br>
+  <span class="output">Spot: <%= @customers.spots %></span><br>
+  <span class="output">Entry Time: <%= @customers.entry %></span><br>
+  <% if @customers.exit.present? && @customers.price.present? %>
+    <span class="output"> Exit Time:<%= @customers.exit %></span><br>
+    <span class="output">Price: ₹<%= @customers.price %></span><br>
+  <% end %>
+
+</div>

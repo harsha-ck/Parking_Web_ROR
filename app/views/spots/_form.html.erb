@@ -1,0 +1,43 @@
+<%= form_with model: spot do |form| %>
+  <div>
+  <p class="right"> * Required fields <p>
+    <%= form.label :spots %> <span class="error"> * </span><br>
+    <%= form.text_field :spots %>
+    <% spot.errors.full_messages_for(:spots).each do |message| %>
+          <div class="error">*<%= message %></div>
+        <% end %>
+  </div><br>
+  <div>
+    <%= form.label :Vehicle, "Vehicle Type" %><span class='error'>*</span><br>
+  <br> 2  <%= form.radio_button :vtype, "2", readonly: !spot.new_record?%>
+   4  <%= form.radio_button :vtype, "4", readonly: !spot.new_record? %>
+   <% spot.errors.full_messages_for(:vtype).each do |message| %>
+        <br><div class="error">*<%= message.gsub("Vtype", "Vehicle type") %></div>
+    <% end %>
+
+
+  </div><br>
+
+  <% if !spot.new_record? %>
+  <div>
+  <%= form.label :status, "Status" %><br>
+  <%= form.text_field :status, readonly: !spot.new_record? %>
+  <% spot.errors.full_messages_for(:status).each do |message| %>
+  <div class="error">*<%= message %></div>
+  <% end %>
+  </div><br>
+  <% end %>
+
+<% if @spot.errors.include?(:base) %>
+    <p class="error">*<%= @spot.errors[:base].first %> </p>
+  <% end %>
+
+
+  <div>
+
+   <%= form.submit %>
+
+  </div><br>
+<% end %>
+
+

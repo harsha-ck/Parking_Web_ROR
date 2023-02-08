@@ -1,0 +1,56 @@
+
+<h2>Parked Vehicles</h2>
+<% if @customers.present? %>
+<table>
+  <thead>
+    <tr>
+      <th> Vehicle Number</th>
+      <th> Vehicle Type</th>
+      <th> Entry</th>
+      <th> Spot</th>
+      <th> Action </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr style="<%= customer.vtype == '2' ? 'background-color: #f2f2f2;' : 'background-color: #ffffff;' %>">
+        <td> <%= customer.vnum %> </td>
+        <td> <%= customer.vtype %> </td>
+        <td> <%= customer.entry %> </td>
+        <td> <%= customer.spots %> </td>
+        <td>
+          <a href="/customer/<%= customer.id %>" title="View"> <span class="icon">&#x1F441; </a>
+        </td>
+      </tr>
+    <% end %>
+    <% else %>
+  <h3 class ="error">No vehicles are parked.</h3>
+ <% end %>
+  </tbody>
+</table>
+<br>
+<table class= "small_table">
+<thead>
+<tr>
+<th> Type </th>
+<th > Free Spots </th>
+<th > Allotted Spots </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Two wheeler </td>
+<td> <%= @free_two %></td>
+
+<td> <%= @allo_two %> </td>
+</tr>
+ <tr>
+ <td> Four wheeler </td>
+ <td> <%= @free_four %> </td>
+
+ <td> <%= @allo_four %> </td>
+ </tr>
+</tbody>
+</table>
+
+

@@ -1,0 +1,44 @@
+
+<h2> Check out </h2>
+<p class="error"> <%= flash[:alert] %> </p>
+
+
+<%= form_with model: @customer, url: customer_check_out_path do |form| %>
+<p class="right"> * Required fields <p>
+  <div>
+  <%= form.label :Vehicle, "Vehicle Number " %><span class='error'>*</span><br>
+    <%= form.text_field :vnum %>
+  </div><br>
+<% if flash[:error] %>
+  <div class="error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+
+<div>
+    <%= form.submit "Check out" %>
+  </div>
+
+</table>
+<br>
+<table class= "small_table">
+<thead>
+<tr>
+<th colspan="2"> Price </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Two wheeler </td>
+<td> ₹30 </td>
+</tr>
+ <tr>
+ <td> Four wheeler </td>
+ <td> ₹50 </td>
+ </tr>
+</tbody>
+</table>
+<p>(Note: first ₹30 for first 2 hours and ₹20 per hour for 2 wheelers first ₹50 for first 2 hours and ₹30 per hour for 4 wheelers )</p>
+<% end %>
+

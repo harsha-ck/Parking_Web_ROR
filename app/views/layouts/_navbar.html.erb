@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "application.css" %>
+<% if request.fullpath != "/login" %>
+<nav>
+  <div class="nav-wrapper">
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <% if session[:current] == "admin" %>
+        <li class="<%= 'active' if controller_name == 'users' && action_name == 'new' %>">
+          <a href="/users/new">ADD user</a>
+        </li>
+
+        <li class="<%= 'active' if controller_name == 'users' && action_name == 'index' %>">
+          <a href="/users">ALL users</a>
+        </li>
+
+        <li class="<%= 'active' if controller_name == 'spots' && action_name == 'index' %>">
+          <%= link_to "All Spots", root_path %>
+        </li>
+        <li class="<%= 'active' if controller_name == 'spots' && action_name == 'new' %>">
+          <a href="/spots/new">ADD Spot</a>
+        </li>
+    <% end %>
+      <li class="<%= 'active' if controller_name == 'customer' && action_name == 'new' %>">
+        <a href="/customer/new">check in </a>
+      </li>
+      <li class="<%= 'active' if controller_name == 'customer' && action_name == 'checkout' %>">
+        <a href="/customer/check/out">check out </a>
+      </li>
+<% if session[:current] == "admin" %>
+        <li class="<%= 'active' if controller_name == 'customer' && action_name == 'index' %>">
+          <a href="/customer"> parked vehicles </a>
+        </li>
+        <li class="<%= 'active' if controller_name == 'customer' && action_name == 'details' %>">
+          <a href="/customer/show/details"> all parking records </a>
+        </li>
+<% end %>
+    </ul>
+  </div>
+</nav>
+
+<%= link_to "Log Out", logout_path, method: :delete, class: "logout" %>
+
+<% end %>

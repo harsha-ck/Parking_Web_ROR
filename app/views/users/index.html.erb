@@ -1,0 +1,29 @@
+<h2>Details</h2>
+<table class="dtable">
+  <thead>
+    <tr>
+      <th> customer ID</th>
+      <th> Name</th>
+      <th> Role</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |form| %>
+      <tr >
+        <td> <%= form.uid %> </td>
+        <td> <%= form.name %> </td>
+        <td> <%= form.role %></td>
+        <td>
+          <a href="/users/<%= form.id %>" title="View"> <span class="icon">&#x1F441;</span></a>
+          <%= link_to raw("🖋️ "), edit_user_path(form.id), title: "Edit" %>
+          <%= link_to raw("🗑️"), user_path(form.id), title: "Delete", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+

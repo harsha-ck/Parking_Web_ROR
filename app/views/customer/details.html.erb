@@ -1,0 +1,32 @@
+
+<h2>All Records</h2>
+<table>
+  <thead>
+    <tr>
+      <th> Vehicle Number</th>
+      <th> Vehicle Type</th>
+      <th> Entry</th>
+      <th> Exit </th>
+      <th> Price </th>
+      <th> Spot</th>
+      <th> Action </th>
+    </tr>
+  </thead>
+  <tbody>
+<% @customersall.each do |customer| %>
+  <tr style="<%= customer.vtype == '2' ? 'background-color: #f2f2f2;' : 'background-color: #ffffff;' %>">
+    <td> <%= customer.vnum %> </td>
+    <td> <%= customer.vtype %> </td>
+    <td> <%= customer.entry %> </td>
+    <td> <%= customer.exit %> </td>
+    <td> <%= customer.price %> </td>
+    <td> <%= customer.spots %> </td>
+    <td>
+      <a href="/customer/<%= customer.id %>" title="View"> <span class="icon">&#x1F441;</a>
+    </td>
+  </tr>
+<% end %>
+
+  </tbody>
+</table>
+<br>
