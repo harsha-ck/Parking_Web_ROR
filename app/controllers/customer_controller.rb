@@ -5,11 +5,15 @@ class CustomerController < ApplicationController
           @allo_two = Spot.where(vtype: 2, status: true).count
           @free_four = Spot.where(vtype: 4, status: false).count
           @allo_four = Spot.where(vtype: 4, status: true).count
-          @customers = Customer.where(exit: nil)
+          @customers = Customer.where(exit: nil).paginate(page: params[:page], per_page: 5)
 
-       end
+
+end
+
+
+
        def details
-          @customersall = Customer.all
+          @customersall = Customer.paginate(page: params[:page], per_page: 5)
        end
        def show
           @customers = Customer.find(params[:id])
@@ -40,6 +44,11 @@ class CustomerController < ApplicationController
            @spot = Spot.find_by(id: @customer.spot_id)
            @spot.update(status: false)
            redirect_to customer_path(@customer), notice: "Customer was successfully checked out."
+           begin
+              CustomerMailer.invoice(@customer).deliver_now
+            rescue => e
+              puts "An error occurred: #{e}"
+            end
          else
            flash[:error] = "* Invalid vehicle number or vehicle not Spoted"
            render :checkout, status: :unprocessable_entity
@@ -85,7 +94,8 @@ class CustomerController < ApplicationController
 
            if @customer.save
              spot.update(status: true)
-             redirect_to new_customer_path, notice: 'Customer was successfully created.'
+             flash[:notice] = 'Checked in successfully.'
+             redirect_to new_customer_path
 
            else
              render :new, status: :unprocessable_entity, notice: 'unsuccessful'
@@ -93,11 +103,13 @@ class CustomerController < ApplicationController
          end
        end
     end
+  def report
 
+  end
      private
 
       def customer_params
-        params.require(:customer).permit(:vnum, :spot_id)
+        params.require(:customer).permit(:vnum,:email, :spot_id)
       end
 
   end

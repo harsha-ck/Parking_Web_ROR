@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
-before_action :restrict_access, except: [:delete]
+before_action :restrict_access, except: [:edit, :update, :delete]
+before_action :check_user_id, only: [:edit,:update]
   def login
 
-    @users = User.find_by(uid: params[:uid])
+    @users = User.find_by(email: params[:email])
     if @users && @users.password_digest == params[:password_digest]
-
+        session[:userid] = @users.id
       if @users.role == "admin"
         session[:current] = @users.role
-
-        redirect_to root_path, notice: "Logged in successfully as admin"
+        redirect_to spots_path, notice: "Logged in successfully as admin"
       elsif @users.role == "user"
         session[:current] = @users.role
         redirect_to new_customer_path, notice: "Logged in successfully as customer"
       end
-    elsif !params[:uid].present?
+    elsif !params[:email].present?
       render :login, status: :unprocessable_entity
     else
       flash.now[:alert] = "Incorrect uid or password"
@@ -21,9 +21,13 @@ before_action :restrict_access, except: [:delete]
     end
 
   end
-
+    def check_user_id
+    if session[:current] != "admin"
+        redirect_to edit_user_path(session[:userid]) unless session[:userid] == params[:id].to_i
+     end
+      end
   def index
-  @users = User.all
+  @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -69,7 +73,7 @@ end
     private
 
       def sess_params
-        params.require(:user).permit(:uid, :name, :password_digest, :role)
+        params.require(:user).permit( :name, :password_digest, :email, :role)
       end
 end
 

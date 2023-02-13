@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_062118) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_130510) do
   create_table "customers", charset: "utf8mb3", force: :cascade do |t|
     t.string "vnum"
     t.string "vtype"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_062118) do
     t.bigint "spot_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
     t.index ["spot_id"], name: "index_customers_on_spot_id"
   end
 
@@ -33,12 +34,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_062118) do
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "uid"
     t.string "name"
     t.string "password_digest"
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
   end
 
   add_foreign_key "customers", "spots"

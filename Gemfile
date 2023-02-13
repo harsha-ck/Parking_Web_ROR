@@ -7,6 +7,13 @@ ruby "2.7.0"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem 'mysql2', '~> 0.5.3'
 gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate', '~> 3.1'
+gem 'sidekiq'
+gem 'sidekiq-cron'
+gem 'sidekiq-client-cli'
+gem 'net-smtp'
+gem 'prawn'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

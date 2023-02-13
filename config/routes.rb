@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-      root "spots#index"
+       root "customer#new"
 
 
      resources :spots
      resources :customer
      resources :users
      get '/customer/show/details', to: 'customer#details'
+     get '/report', to: 'customer#report'
 
      get '/customer/check/out', to: 'customer#checkout'
      post '/customer/check/out', to: 'customer#checkout'

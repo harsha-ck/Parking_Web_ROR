@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Hello </h2>
+    <h3> Your Invoice </h3>
+    <p>Dear <%= @customer.vnum %>,</p>
+    <p>Please find attached your latest invoice for the month of <%= @customer.exit.strftime("%B") %>.</p>
+    <p>If you have any questions or concerns, please feel free to contact us.</p>
+    <p>Thank you for your business.</p>
+
+    <p>Best regards,</p>
+    <p>Your Parking Team</p>
+  </body>
+</html>

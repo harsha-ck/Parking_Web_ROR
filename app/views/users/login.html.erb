@@ -2,8 +2,8 @@
 <%= form_tag login_path do %>
 <p class="right"> * Required fields <p>
   <div class="form-group">
-    <%= label_tag :uid, "User ID" %><span class="error"> * </span><br>
-    <%= text_field_tag :uid, params[:uid], class: "form-control" %>
+    <%= label_tag :email, "Email" %><span class="error"> * </span><br>
+    <%= text_field_tag :email, params[:email], class: "form-control" %>
   </div>
 
   <div class="form-group">

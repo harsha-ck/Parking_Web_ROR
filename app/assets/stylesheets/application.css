@@ -255,3 +255,30 @@ input[type="submit"]:disabled {
 .output{
   font-size: 18px;
 }
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+  }
+.pagination {
+ display: inline-block;
+
+}
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+em {
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: black;
+}
+
+ a:hover:not(.active) {
+  background-color: #ddd;
+}

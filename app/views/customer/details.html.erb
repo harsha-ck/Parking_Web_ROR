@@ -9,6 +9,7 @@
       <th> Exit </th>
       <th> Price </th>
       <th> Spot</th>
+      <th> Email </th>
       <th> Action </th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
     <td> <%= customer.exit %> </td>
     <td> <%= customer.price %> </td>
     <td> <%= customer.spots %> </td>
+     <td> <%= customer.email %> </td>
     <td>
       <a href="/customer/<%= customer.id %>" title="View"> <span class="icon">&#x1F441;</a>
     </td>
@@ -30,3 +32,9 @@
   </tbody>
 </table>
 <br>
+<br>
+<div class="pagination-container ">
+<div class="pagination">
+<%= will_paginate @customersall %>
+</div>
+</div>

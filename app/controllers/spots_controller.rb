@@ -2,7 +2,20 @@ class SpotsController < ApplicationController
  before_action :restrict_access
 
    def index
-     @spots = Spot.all
+     @spots = Spot.paginate(page: params[:page], per_page: 5)
+      begin
+        custs = Customer.where(exit: nil)
+        if custs.present?
+          custs.each do |customer|
+            entry = customer.entry
+            if (Time.now - entry) >= 48.hours
+              CustomerMailer.duration_exceeded(customer).deliver_now
+            end
+          end
+        end
+      rescue => e
+        puts "An error occurred: #{e}"
+      end
 
    end
 
@@ -40,7 +53,7 @@ class SpotsController < ApplicationController
      @spot = Spot.find(params[:id])
      @spot.destroy
 
-     redirect_to root_path, status: :see_other
+     redirect_to spots_path, status: :see_other
     end
    private
 

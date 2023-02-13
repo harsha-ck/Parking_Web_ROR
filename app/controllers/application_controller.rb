@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+require 'net/smtp'
 class ApplicationController < ActionController::Base
 before_action :require_login
 

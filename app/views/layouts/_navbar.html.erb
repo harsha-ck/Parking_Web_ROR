@@ -14,7 +14,7 @@
         </li>
 
         <li class="<%= 'active' if controller_name == 'spots' && action_name == 'index' %>">
-          <%= link_to "All Spots", root_path %>
+          <%= link_to "All Spots", spots_path %>
         </li>
         <li class="<%= 'active' if controller_name == 'spots' && action_name == 'new' %>">
           <a href="/spots/new">ADD Spot</a>
@@ -26,6 +26,7 @@
       <li class="<%= 'active' if controller_name == 'customer' && action_name == 'checkout' %>">
         <a href="/customer/check/out">check out </a>
       </li>
+
 <% if session[:current] == "admin" %>
         <li class="<%= 'active' if controller_name == 'customer' && action_name == 'index' %>">
           <a href="/customer"> parked vehicles </a>
@@ -33,7 +34,13 @@
         <li class="<%= 'active' if controller_name == 'customer' && action_name == 'details' %>">
           <a href="/customer/show/details"> all parking records </a>
         </li>
+         <li class="<%= 'active' if controller_name == 'customer' && action_name == 'reports' %>">
+                  <a href="/report"> Reports </a>
+                </li>
 <% end %>
+ <li class="<%= 'active' if controller_name == 'users' && action_name == 'edit' %>">
+              <a href="/users/<%= session[:userid] %>/edit">Reset Password </a>
+            </li>
     </ul>
   </div>
 </nav>

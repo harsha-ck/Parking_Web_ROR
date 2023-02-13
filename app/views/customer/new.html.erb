@@ -1,6 +1,10 @@
 
 <h2> Check in </h2>
 <p class="error"> <%= flash[:alert] %> </p>
+<% if flash[:notice] %>
+  <p style="color:green;">  <%= flash[:notice] %> <p>
+<% end %>
+
 <%= form_with model: @customer, url: customer_index_path do |form| %>
 <p class="right"> * Required fields <p>
   <div>
@@ -15,6 +19,13 @@
       </ul>
 
 <% end %>
+</div><br>
+<div>
+    <%= form.label :email, "Email" %> <span class="error"> * </span><br>
+    <%= form.text_field :email %>
+    <% @customer.errors.full_messages_for(:email).each do |message| %>
+          <p class="error">*<%= message %></p>
+        <% end %>
   </div><br>
 <%= form.label :Spot, "Select spot" %><span class='error'>*</span><br>
 <p> Two wheeler Spots</p>

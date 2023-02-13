@@ -1,15 +1,17 @@
 <%= form_with model: user do |form| %>
   <div>
   <p class="right"> * Required fields <p>
-    <%= form.label :uid, "User ID" %> <span class="error"> * </span><br>
-    <%= form.number_field :uid %>
-    <% @users.errors.full_messages_for(:uid).each do |message| %>
-          <p class="error">*<%= message.gsub("Uid", "User id") %></p>
+    <% if session[:current] == "admin" %>
+    <%= form.label :email, "Email" %> <span class="error"> * </span><br>
+    <%= form.text_field :email, readonly: !user.new_record? %>
+    <% @users.errors.full_messages_for(:email).each do |message| %>
+          <p class="error">*<%= message %></p>
+        <% end %>
         <% end %>
   </div><br>
   <div>
     <%= form.label :name, "Name" %><span class='error'>*</span><br>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, readonly: !user.new_record? %>
     <% @users.errors.full_messages_for(:name).each do |message| %>
         <br><div class="error">*<%= message.gsub("name", "Name") %></div>
     <% end %>
@@ -25,10 +27,11 @@
 
 
     </div><br>
+
     <div>
       <%= form.label :role, "Role" %><span class='error'>*</span><br>
-       Admin <%= form.radio_button :role, "admin" %>
-       user <%= form.radio_button :role, "user" %>
+       Admin <%= form.radio_button :role, "admin", disabled: !user.new_record? %>
+       User <%= form.radio_button :role, "user", disabled: !user.new_record?  %>
 
       <% @users.errors.full_messages_for(:role).each do |message| %>
           <br><div class="error">*<%= message.gsub("role", "Role") %></div>

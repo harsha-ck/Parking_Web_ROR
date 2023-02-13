@@ -8,6 +8,7 @@
       <th> Vehicle Type</th>
       <th> Entry</th>
       <th> Spot</th>
+      <th> Email </th>
       <th> Action </th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td> <%= customer.vtype %> </td>
         <td> <%= customer.entry %> </td>
         <td> <%= customer.spots %> </td>
+        <td> <%= customer.email %> </td>
         <td>
           <a href="/customer/<%= customer.id %>" title="View"> <span class="icon">&#x1F441; </a>
         </td>
@@ -54,3 +56,10 @@
 </table>
 
 
+<br>
+<br>
+<div class="pagination-container ">
+<div class="pagination">
+<%= will_paginate @customers %>
+</div>
+</div>
