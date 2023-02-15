@@ -20,16 +20,38 @@ all records and calculate price according to check in and check out.
     bin/rails generate model customer vnum:string vtype:string entry:datetime exit:datetime price:float spots:string spot:references
     bin/rails generate model users uid:integer name:string password_digest:string role:string
 
+* Add mailer for customer
+    bin/rails generate mailer customer
+
+* Add your gmail id and password in config/environments/development.rb file. (For safety purpose generate app password for your gmail account)
+
+* Add your gmail in mailers/customer_mailer in default from.
+
+* Keep side `redis-server` and `sidekiq` running in terminal to send gmail.
+
 * Add routes as it is there in app/config/routes.yml file
 
 * Add gem 'mysql2', '~> 0.5.3', gem 'bcrypt', '~> 3.1.7' to gemfile and run
     bundle install
 
 * To change time from utc to itc or any other add in config/application.rb and config/environments/developments.rb
-  config.time_zone = 'Asia/Kolkata'
+    config.time_zone = 'Asia/Kolkata'
+
+* To covert time zone in database in terminal
+    mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pYourPassword mysql # -pyourpassword without space.
+
+* To check run this in mysql server
+    SELECT CONVERT_TZ(created_at, 'UTC', 'Asia/Kolkata') AS created_at_indian_time FROM users;
 
 * To create new database
     bin/rails db:create
+
+* To add email field in users and customer table
+  rails generate migration add_email_to_users email:string
+  rails generate migration add_email_to_customer email:string
+
+* Remove uid from users table
+  rails generate migration remove_user_id_from_users uid:integer
 
 * Database migration
     bin/rails db:migrate #if database exists skip above command
@@ -37,9 +59,9 @@ all records and calculate price according to check in and check out.
 * To seed database
     bin/rails db:seed
 
-* Login details for admin User ID: 1000 Password: Qwerty@123
+* Login details for admin Email:John@gmail.com Password: Qwerty@123
 
-* Login details for user User ID: 1001/1002/1003/1004 Password: Qweasd@123/Wsxqaz@123/Hello@123 respectively.
+* Login details for user Email and Password(given in db/seeds.rb file).
 
 * To check database in console
     bin/rails console

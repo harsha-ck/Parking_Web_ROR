@@ -13,7 +13,8 @@ gem 'sidekiq-cron'
 gem 'sidekiq-client-cli'
 gem 'net-smtp'
 gem 'prawn'
-
+gem 'groupdate'
+gem 'chartkick'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

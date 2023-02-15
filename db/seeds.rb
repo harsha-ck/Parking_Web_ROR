@@ -25,3 +25,4 @@ park_spots =[
 ]
 
 Spot.create!(park_spots)
+

@@ -47,6 +47,7 @@ end
            begin
               CustomerMailer.invoice(@customer).deliver_now
             rescue => e
+              flash[:error] = "Email not sent to '#{@customer.email}'"
               puts "An error occurred: #{e}"
             end
          else
@@ -103,9 +104,33 @@ end
          end
        end
     end
+
   def report
 
+    session[:start_date] = params[:start_date]
+    session[:end_date] = params[:end_date]
+    session[:vtype] = params[:vtype]
+
+    start_date = session[:start_date] || 7.days.ago
+    end_date = session[:end_date] || Date.today
+    vtype = session[:vtype] || "All"
+
+    if start_date == "" || end_date == ""
+        flash[:error] = "* Please select both Start and End date"
+        start_date = 7.days.ago
+        end_date = Date.today
+    else
+      start_date = Date.parse(session[:start_date]) if session[:start_date]
+      end_date = Date.parse(session[:end_date]) if session[:end_date]
+    end
+
+    @vehicles = Customer.where(created_at: start_date.beginning_of_day..end_date.end_of_day)
+    @vehicles = @vehicles.where(vtype: vtype) unless vtype == "All"
+    @amount = @vehicles.sum(:price)
+
   end
+
+
      private
 
       def customer_params

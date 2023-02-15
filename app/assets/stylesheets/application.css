@@ -190,6 +190,7 @@ text-decoration: none;
 
 
 
+
 input[type=text], input[type=number], input[type=password], input[type=select]{
   width: 80%;
   padding: 12px 20px;
@@ -200,7 +201,7 @@ input[type=text], input[type=number], input[type=password], input[type=select]{
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 input[type=submit]:enabled {
-    background: linear-gradient(344deg, #095f70, transparent);
+    background: linear-gradient(344deg, #009100 , transparent);
     color: black;
     padding: 10px 20px;
     border-radius: 5px;
@@ -212,7 +213,7 @@ input[type=submit]:enabled {
 
 
 input[type=submit]:hover {
-    background: linear-gradient(23deg, #095f70, transparent);
+    background: linear-gradient(23deg, #009100, transparent);
     color: white;
 
 }
@@ -244,6 +245,47 @@ input[type="submit"]:disabled {
  input[type="radio"]:hover {
     background: silver;
   }
+
+
+
+input[type="date" i] {
+
+    font-size: 15px;
+      padding: 8px;
+      text-transform: uppercase;
+      font-family: none;
+      border: none;
+      outline: none;
+      color: #333;
+      border-radius: 4px;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      width: 60%;
+      appearance: none;
+      padding-right: 24px;
+}
+
+select {
+  font-size: 16px;
+  background: white;
+  font-family: none;
+  padding: 8px 8px 8px 8px;
+  color: #333;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 68%;
+
+}
+
+select:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.linechart{
+width: 80%;
+margin: 50px auto;
+}
 
 .spot-display{
   background-color: #f1f1f1;

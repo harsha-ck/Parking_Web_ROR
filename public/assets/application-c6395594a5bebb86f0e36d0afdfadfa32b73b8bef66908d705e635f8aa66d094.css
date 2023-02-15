@@ -1,0 +1,284 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+body {
+  background: smokewhite;
+  background-size: 100% 209%;
+}
+
+form label {
+
+font-weight: bold;
+}
+
+nav {
+  background: linear-gradient(23deg, #f4fff4, transparent);
+
+  align: center;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+.nav-wrapper .active a {
+  border-bottom: 2px solid green;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+nav a {
+  color: black;
+  display: block;
+  border-right: 0.5px dashed grey;
+
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  align: center;
+}
+
+nav a:hover {
+  background: linear-gradient(344deg, #90EE90 , transparent);
+
+}
+
+.two, .four{
+  float: left;
+  width: 50%;
+}
+ h1, h2, h3, h4 {
+   text-align: center;
+   text-transform: uppercase;
+ }
+.error{
+  color:red;
+}
+.right{
+color:red;
+text-align: right;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: auto;
+    margin: 0 auto;
+
+}
+.dtable{
+    border-collapse: collapse;
+    width: 35%;
+    margin: 0 auto;
+}
+th, td {
+border: 1px solid grey;
+padding: 8px;
+text-align: left;
+}
+
+thead th {
+background: #d8ffd8;
+color: black;
+}
+.logout {
+
+    background: linear-gradient(344deg, #f44336, transparent);
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+.logout:hover {
+    background: linear-gradient(23deg, #f44336, transparent);
+        color: white;
+}
+
+table tbody tr:hover {
+  background: linear-gradient(23deg, silver, transparent);
+
+}
+
+.small_table{
+
+    border-collapse: collapse;
+    width: auto;
+    margin: 50px auto;
+    align: centre;
+
+}
+.small_table tbody tr:hover{
+background: none;
+
+}
+form{
+
+  background-color: #f1f1f1;
+  padding: 40px;
+  padding-bottom: auto;
+  border:1px solid #ccc;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 30%; /* set the width of the form */
+  margin: 25px 30%; /* center the form horizontally and vertically */
+  animation: slideInDown 0.9s ease;
+}
+
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+
+.icon {
+  font-size: 20px;
+}
+
+a{
+text-decoration: none;
+
+}
+
+
+
+ input[type=text]:focus, input[type=number]:focus , input[type=password]:focus {
+        outline: none;
+        border-bottom: 2px solid green;
+      }
+
+
+
+
+input[type=text], input[type=number], input[type=password], input[type=select]{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+input[type=submit]:enabled {
+    background: linear-gradient(344deg, #095f70, transparent);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+input[type=submit]:hover {
+    background: linear-gradient(23deg, #095f70, transparent);
+    color: white;
+
+}
+input[type="submit"]:disabled {
+  background: linear-gradient(344deg, black, transparent);
+  color: black;
+  cursor: not-allowed;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+  input[type="radio"] {
+    width: 20px;
+    height: 16px;
+    appearance: none;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked {
+    background: black;
+  }
+ input[type="radio"]:hover {
+    background: silver;
+  }
+
+.spot-display{
+  background-color: #f1f1f1;
+  padding:10px;
+  border:1px solid #ccc;
+  width: 30%;
+  margin: 50px auto;
+}
+.output{
+  font-size: 18px;
+}
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+  }
+.pagination {
+ display: inline-block;
+
+}
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+em {
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: black;
+}
+
+ a:hover:not(.active) {
+  background-color: #ddd;
+}

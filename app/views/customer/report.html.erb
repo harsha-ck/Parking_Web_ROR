@@ -1,0 +1,37 @@
+<h1>Reports</h1>
+
+<%= form_tag report_path, method: :get do %>
+  <div class="form-group">
+    <%= label_tag :start_date, "Start Date " %><br>
+    <%= date_field_tag :start_date, params[:start_date] %>
+  </div><br>
+
+  <div class="form-group">
+    <%= label_tag :end_date, "End Date " %><br>
+    <%= date_field_tag :end_date, params[:end_date] %>
+  </div><br>
+
+  <div class="form-group">
+    <%= label_tag :vtype, "Vehicle Type" %><br>
+    <%= select_tag :vtype, options_for_select(["All", "2", "4"], params[:vtype]) %>
+  </div><br>
+<% if flash[:error] %>
+  <div class="error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+  <div class="form-group">
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>
+
+<h3>Total number of vehicles parked: <%= @vehicles.count %></h3>
+<h3>Total parking amount collected: ₹<%= @amount %></h3>
+
+
+<div class="linechart">
+<%= line_chart @vehicles.group_by_day(:created_at).sum(:price), xtitle: "Date", ytitle: "Amount Collected", library: {dateFormat: "yyyy-MM-dd"} %>
+</div>
+
+
+

@@ -11,7 +11,7 @@ before_action :check_user_id, only: [:edit,:update]
         redirect_to spots_path, notice: "Logged in successfully as admin"
       elsif @users.role == "user"
         session[:current] = @users.role
-        redirect_to new_customer_path, notice: "Logged in successfully as customer"
+        redirect_to new_customer_path, notice: "Logged in successfully as user"
       end
     elsif !params[:email].present?
       render :login, status: :unprocessable_entity
