@@ -1,9 +1,5 @@
 class CustomerMailer < ApplicationMailer
-<<<<<<< HEAD
 default from: '<your gmail>'
-=======
-default from: '<your email>'
->>>>>>> b622d27b16a361fb43eafc9a408827f6aa1c14b2
  def duration_exceeded(customer)
     @customer = customer
         mail(to: @customer.email, subject: "Your parked vehicle duration has exceeded 2 days")

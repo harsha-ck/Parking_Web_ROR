@@ -48,11 +48,7 @@ config.time_zone = 'Asia/Kolkata'
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-<<<<<<< HEAD
     user_name:            '<your gmail>',
-=======
-    user_name:            '<your email>',
->>>>>>> b622d27b16a361fb43eafc9a408827f6aa1c14b2
     password:             '<your password>',
     authentication:       'plain',
     enable_starttls_auto:  true

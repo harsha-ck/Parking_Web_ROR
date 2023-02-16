@@ -8,8 +8,8 @@ development:
   adapter: mysql2 # install mysql2 to gem
   encoding: utf8
   reconnect: false
-  database: Parks #database name
+  database: Parks
   pool: 5
-  username: <user name>
-  password: <your password>
+  username: mysqluser
+  password: Qwerty@123
   host: localhost
