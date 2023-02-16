@@ -43552,3 +43552,43 @@ Processing by UsersController#login as HTML
 Completed 422 Unprocessable Entity in 7ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 2040)
 
 
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:44:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CustomerController#new as HTML
+Redirected to http://127.0.0.1:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 2869)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-02-16 12:44:28 +0530
+Processing by UsersController#login as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:6:in `login'
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 1.8ms | Allocations: 953)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 734)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4267)
+Completed 422 Unprocessable Entity in 30ms (Views: 11.5ms | ActiveRecord: 2.7ms | Allocations: 9994)
+
+
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:48:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CustomerController#new as HTML
+Redirected to http://127.0.0.1:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms | Allocations: 2874)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-02-16 12:48:37 +0530
+Processing by UsersController#login as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:6:in `login'
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 3.1ms | Allocations: 953)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 734)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4266)
+Completed 422 Unprocessable Entity in 43ms (Views: 23.5ms | ActiveRecord: 4.5ms | Allocations: 10005)
+
+
