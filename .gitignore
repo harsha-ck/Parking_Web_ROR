@@ -1,2 +1,7 @@
-/temp/
-/node_modules/
+tmp
+node_modules
+.gitignore
+tmp/pids/server.pid
+.idea/workspace.xml
+.idea/misc.xml
+
