@@ -1,0 +1,15 @@
+ <h1>Reset Password</h1>
+
+<%= form_tag reset_path do %>
+  <div class="form-group">
+      <%= label_tag :password, "New Password" %><br>
+      <%= password_field_tag :password_digest %>
+    </div>
+  <% @users.errors.full_messages_for(:password_digest).each do |message| %>
+    <br><div class="error">*<%= message.gsub("Password digest", "Password") %></div>
+  <% end %>
+
+
+
+     <%= submit_tag "Submit" %>
+   <% end %>

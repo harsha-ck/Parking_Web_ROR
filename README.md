@@ -22,6 +22,7 @@ all records and calculate price according to check in and check out.
 
 * Add mailer for customer
     bin/rails generate mailer customer
+    bin/rails generate mailer user
 
 * Add your gmail id and password in config/environments/development.rb file. (For safety purpose generate app password for your gmail account)
 

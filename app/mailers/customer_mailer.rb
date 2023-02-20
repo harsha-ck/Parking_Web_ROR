@@ -1,5 +1,8 @@
 class CustomerMailer < ApplicationMailer
-default from: '<your gmail>'
+
+
+
+
  def duration_exceeded(customer)
     @customer = customer
         mail(to: @customer.email, subject: "Your parked vehicle duration has exceeded 2 days")
@@ -11,6 +14,7 @@ default from: '<your gmail>'
         mail(to: @customer.email, subject: 'Your Invoice')
 
  end
+
  def generate_pdf
    Prawn::Document.new do |pdf|
      pdf.text "Invoice for #{@customer.vnum}", align: :center, size: 22, style: :bold

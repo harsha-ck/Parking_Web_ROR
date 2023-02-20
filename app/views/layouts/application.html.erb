@@ -2,7 +2,11 @@
 <html>
   <head>
    <header>
-        <%= render 'layouts/navbar' %>
+        <% if !['login','forgot', 'reset', 'passedit'].include?(action_name) %>
+            <%= render 'layouts/navbar' %>
+        <% end %>
+
+
 
     </header>
     <title>Parks</title>

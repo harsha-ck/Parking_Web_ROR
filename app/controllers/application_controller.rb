@@ -1,13 +1,13 @@
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
-before_action :require_login
+before_action :require_login , except: [:forgot, :reset, :passedit]
 
   private
 
   def require_login
     unless session[:current]
-      flash[:error] = "You must be logged in to access this page"
+
       redirect_to login_path unless request.fullpath == login_path
     end
 

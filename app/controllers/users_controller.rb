@@ -70,6 +70,33 @@ end
 
     end
 
+    def forgot
+
+         @users = User.find_by(email: params[:email])
+         if @users.present?
+             UserMailer.forgot(@users).deliver_now
+              flash[:error] = "Reset Password link has been sent to '#{@users.email}'"
+
+         elsif !params[:email].present?
+            render :forgot, status: :unprocessable_entity
+         else
+           flash[:error] = "Email does not exists"
+           render :forgot, status: :unprocessable_entity
+         end
+
+    end
+    def reset
+        @users = User.find(params[:id])
+    end
+
+    def passedit
+        @users = User.find(params[:id])
+        if @users.update(password_digest: params[:password_digest])
+          redirect_to login_path, notice: 'User was successfully updated.'
+        else
+          render :forgot, status: :unprocessable_entity
+        end
+    end
     private
 
       def sess_params
