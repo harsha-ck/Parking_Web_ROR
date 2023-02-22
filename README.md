@@ -19,7 +19,7 @@ all records and calculate price according to check in and check out.
     bin/rails generate model spot spots:string vtype:integer status:boolean
     bin/rails generate model customer vnum:string vtype:string entry:datetime exit:datetime price:float spots:string spot:references
     bin/rails generate model users uid:integer name:string password_digest:string role:string
-
+    
 * Add mailer for customer
     bin/rails generate mailer customer
     bin/rails generate mailer user
@@ -48,11 +48,11 @@ all records and calculate price according to check in and check out.
     bin/rails db:create
 
 * To add email field in users and customer table
-  rails generate migration add_email_to_users email:string
-  rails generate migration add_email_to_customer email:string
+    rails generate migration add_email_to_users email:string
+    rails generate migration add_email_to_customer email:string
 
 * Remove uid from users table
-  rails generate migration remove_user_id_from_users uid:integer
+    rails generate migration remove_user_id_from_users uid:integer
 
 * Database migration
     bin/rails db:migrate #if database exists skip above command
@@ -72,6 +72,12 @@ all records and calculate price according to check in and check out.
 * Create _navbar.html.erb in views/layouts for navbar in header.
 
 * To configure database or change database customer or password app/config/database.yml
+
+* To add api features in application
+    rails generate controller Api::V1::Customer
+    rails generate controller Api::V1::Spots
+
+* Add routes for api in config/routes.rb
 
 * Run the project
     bin/rails server
