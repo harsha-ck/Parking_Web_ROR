@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_130510) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_070611) do
   create_table "customers", charset: "utf8mb3", force: :cascade do |t|
     t.string "vnum"
     t.string "vtype"
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_130510) do
     t.datetime "exit"
     t.float "price"
     t.string "spots"
-    t.bigint "spot_id", null: false
+    t.bigint "spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_130510) do
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
-    t.string "role"
+    t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

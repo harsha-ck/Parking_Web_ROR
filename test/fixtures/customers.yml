@@ -1,19 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  vnum: MyString
-  vtype: MyString
+  vnum: KA23MF1234
+  vtype: 2
   entry: 2023-02-08 11:51:18
   exit: 2023-02-08 11:51:18
   price: 1.5
-  spots: MyString
-  spot: one
+  spots: 1
+  spot_id: 1
+  email: atestacc95@gmail.com
 
 two:
-  vnum: MyString
-  vtype: MyString
+  vnum: MH12EF2312
+  vtype: 4
   entry: 2023-02-08 11:51:18
   exit: 2023-02-08 11:51:18
   price: 1.5
-  spots: MyString
-  spot: two
+  spots: 2
+  spot_id: 2
+  email: ates95@gmail.com

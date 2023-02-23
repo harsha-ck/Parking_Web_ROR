@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_23_02_23,_7_38_pm_[Changes]1" date="1677161329380" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_02_23,_7_38_pm_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 23/02/23, 7:38 pm [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="tmp/cache/bootsnap/load-path-cache" />
+    <option name="AFTER_PATH" value="tmp/cache/bootsnap/load-path-cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_02_23,_7_38_pm_[Changes]1/load-path-cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="tmp/cache/assets/sprockets/v4.0.0/LT/LTYLlfIJacUK6pa4Y9E9dGjZj3_K8rbu9fFepFccFz8.cache" />
+    <option name="AFTER_PATH" value="tmp/cache/assets/sprockets/v4.0.0/LT/LTYLlfIJacUK6pa4Y9E9dGjZj3_K8rbu9fFepFccFz8.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_02_23,_7_38_pm_[Changes]1/LTYLlfIJacUK6pa4Y9E9dGjZj3_K8rbu9fFepFccFz8.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="tmp/cache/assets/sprockets/v4.0.0/_V/_VLGpTFCUSCWHUNIY3UjgUlEmA6JGBFh33QXdAgOr_4.cache" />
+    <option name="AFTER_PATH" value="tmp/cache/assets/sprockets/v4.0.0/_V/_VLGpTFCUSCWHUNIY3UjgUlEmA6JGBFh33QXdAgOr_4.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_02_23,_7_38_pm_[Changes]1/_VLGpTFCUSCWHUNIY3UjgUlEmA6JGBFh33QXdAgOr_4.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="dump.rdb" />
+    <option name="AFTER_PATH" value="dump.rdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_02_23,_7_38_pm_[Changes]1/dump.rdb" />
+  </binary>
+</changelist>

@@ -1,0 +1,830 @@
+  [1m[36mActiveRecord::InternalMetadata Pluck (4.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (33.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `Park_test`[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE DATABASE `Park_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `customers` CASCADE[0m
+  [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE `customers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `vnum` varchar(255), `vtype` varchar(255), `entry` datetime(6), `exit` datetime(6), `price` float(24), `spots` varchar(255), `spot_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, INDEX `index_customers_on_spot_id` (`spot_id`)) DEFAULT CHARSET=utf8mb3[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `spots` CASCADE[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE `spots` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `spots` varchar(255), `vtype` int, `status` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb3[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `users` CASCADE[0m
+  [1m[35m (27.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `password_digest` varchar(255), `role` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL) DEFAULT CHARSET=utf8mb3[0m
+  [1m[35m (49.0ms)[0m  [1m[35mALTER TABLE `customers` ADD CONSTRAINT `fk_rails_19bd318068`
+FOREIGN KEY (`spot_id`)
+  REFERENCES `spots` (`id`)
+[0m
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20230209130510)[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20230208060419),
+(20230208061243),
+(20230208062118),
+(20230209075831),
+(20230209124933);
+
+[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2023-02-23 17:26:35.003659', '2023-02-23 17:26:35.003659')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '1bfa211083adeb0bfec8bd2f4ca94689aebf6fbe', '2023-02-23 17:26:35.010929', '2023-02-23 17:26:35.010929')[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('7257157915799349180', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to MakeSpotIdNullableInCustomers (20230221101554)
+  [1m[35m (31.5ms)[0m  [1m[35mALTER TABLE `customers` CHANGE `spot_id` `spot_id` bigint DEFAULT NULL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230221101554')[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeRoleDataTypeInUsers (20230222101436)
+  [1m[35m (28.9ms)[0m  [1m[35mALTER TABLE `users` CHANGE `role` `role` int COLLATE utf8mb3_general_ci DEFAULT NULL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230222101436')[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangePasswordDigestNullConstraint (20230223070611)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230223070611')[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7257157915799349180')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (33.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS `Park_test`[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE DATABASE `Park_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS `customers` CASCADE[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE `customers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `vnum` varchar(255), `vtype` varchar(255), `entry` datetime(6), `exit` datetime(6), `price` float(24), `spots` varchar(255), `spot_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, INDEX `index_customers_on_spot_id` (`spot_id`)) DEFAULT CHARSET=utf8mb3[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `spots` CASCADE[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE `spots` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `spots` varchar(255), `vtype` int, `status` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb3[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `users` CASCADE[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `password_digest` varchar(255), `role` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL) DEFAULT CHARSET=utf8mb3[0m
+  [1m[35m (34.7ms)[0m  [1m[35mALTER TABLE `customers` ADD CONSTRAINT `fk_rails_19bd318068`
+FOREIGN KEY (`spot_id`)
+  REFERENCES `spots` (`id`)
+[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20230223070611)[0m
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20230208060419),
+(20230208061243),
+(20230208062118),
+(20230209075831),
+(20230209124933),
+(20230209130510),
+(20230221101554),
+(20230222101436);
+
+[0m
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2023-02-23 17:26:59.456475', '2023-02-23 17:26:59.456475')[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', 'dd32f1751d9aaff41834e41a03fad1b2957f4ef2', '2023-02-23 17:26:59.463229', '2023-02-23 17:26:59.463229')[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:38:22.671516', '2023-02-23 17:38:22.671516', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:38:22.671516', '2023-02-23 17:38:22.671516', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:38:22.679046', '2023-02-23 17:38:22.679046'), (298486374, '2', 4, FALSE, '2023-02-23 17:38:22.679046', '2023-02-23 17:38:22.679046');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:38:22.683467', '2023-02-23 17:38:22.683467', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:38:22.683467', '2023-02-23 17:38:22.683467', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+UserPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+UserPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+UserPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+SpotPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+SpotPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SpotPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_login
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_show
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+CustomerPolicyTest: test_show
+-----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------
+CustomerPolicyTest: test_scope
+------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_create
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_update
+-------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+CustomerPolicyTest: test_destroy
+--------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SpotsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SpotsControllerTest: test_should_get_show
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+SpotsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SpotsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+CustomerControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+CustomerControllerTest: test_should_get_index
+---------------------------------------------
+Started GET "/customer" for 127.0.0.1 at 2023-02-23 23:08:22 +0530
+Processing by CustomerController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 2707)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+CustomerControllerTest: test_should_get_checkout
+------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+CustomerControllerTest: test_should_get_show
+--------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+CustomerControllerTest: test_should_get_details
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:42:53.151343', '2023-02-23 17:42:53.151343', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:42:53.151343', '2023-02-23 17:42:53.151343', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:42:53.158345', '2023-02-23 17:42:53.158345'), (298486374, '2', 4, FALSE, '2023-02-23 17:42:53.158345', '2023-02-23 17:42:53.158345');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:42:53.162214', '2023-02-23 17:42:53.162214', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:42:53.162214', '2023-02-23 17:42:53.162214', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SpotPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+SpotPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+SpotPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+CustomerPolicyTest: test_destroy
+--------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+CustomerPolicyTest: test_show
+-----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_update
+-------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------
+CustomerPolicyTest: test_scope
+------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_create
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+UserPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+UserPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+UserPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+UserControllerTest: test_should_get_new
+---------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+UserControllerTest: test_should_get_show
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_login
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+UserControllerTest: test_should_get_edit
+----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+CustomerControllerTest: test_should_get_details
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+CustomerControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+CustomerControllerTest: test_should_get_show
+--------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+CustomerControllerTest: test_should_get_index
+---------------------------------------------
+Started GET "/customer" for 127.0.0.1 at 2023-02-23 23:12:53 +0530
+Processing by CustomerController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 2708)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+CustomerControllerTest: test_should_get_checkout
+------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SpotControllerTest: test_should_get_show
+----------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SpotControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SpotControllerTest: test_should_get_new
+---------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SpotControllerTest: test_should_get_edit
+----------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:43:44.858353', '2023-02-23 17:43:44.858353', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:43:44.858353', '2023-02-23 17:43:44.858353', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:43:44.865804', '2023-02-23 17:43:44.865804'), (298486374, '2', 4, FALSE, '2023-02-23 17:43:44.865804', '2023-02-23 17:43:44.865804');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:43:44.869664', '2023-02-23 17:43:44.869664', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:43:44.869664', '2023-02-23 17:43:44.869664', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+CustomerControllerTest: test_should_get_details
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+CustomerControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+CustomerControllerTest: test_should_get_checkout
+------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+CustomerControllerTest: test_should_get_index
+---------------------------------------------
+Started GET "/customer" for 127.0.0.1 at 2023-02-23 23:13:44 +0530
+Processing by CustomerController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms | Allocations: 2708)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+CustomerControllerTest: test_should_get_show
+--------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+UserPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+UserPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+UserPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+UserControllerTest: test_should_get_new
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+UserControllerTest: test_should_get_edit
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_login
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+UserControllerTest: test_should_get_show
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+CustomerPolicyTest: test_destroy
+--------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+CustomerPolicyTest: test_show
+-----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_create
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------
+CustomerPolicyTest: test_scope
+------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_update
+-------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SpotPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+SpotPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+SpotPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SpotControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SpotControllerTest: test_should_get_new
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SpotControllerTest: test_should_get_edit
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+SpotControllerTest: test_should_get_show
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:47:07.967107', '2023-02-23 17:47:07.967107', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:47:07.967107', '2023-02-23 17:47:07.967107', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:47:07.979036', '2023-02-23 17:47:07.979036'), (298486374, '2', 4, FALSE, '2023-02-23 17:47:07.979036', '2023-02-23 17:47:07.979036');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:47:07.986208', '2023-02-23 17:47:07.986208', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:47:07.986208', '2023-02-23 17:47:07.986208', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/users" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 2721)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+UserControllerTest: test_should_get_new
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_login
+-----------------------------------------
+Started GET "/login" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by UsersController#login as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.5ms | Allocations: 867)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3293)
+Completed 422 Unprocessable Entity in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 6035)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------
+CustomerPolicyTest: test_scope
+------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_create
+-------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+CustomerPolicyTest: test_update
+-------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+CustomerPolicyTest: test_destroy
+--------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+CustomerPolicyTest: test_show
+-----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+UserPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+UserPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+UserPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+UserPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+SpotControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/spots" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by SpotsController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 245)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+SpotControllerTest: test_should_get_new
+---------------------------------------
+Started GET "/spots/new" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by SpotsController#new as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 183)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+CustomerControllerTest: test_should_get_checkout
+------------------------------------------------
+Started GET "/customer/check/out" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by CustomerController#checkout as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 251)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+CustomerControllerTest: test_should_get_index
+---------------------------------------------
+Started GET "/customer" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by CustomerController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 183)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+CustomerControllerTest: test_should_get_details
+-----------------------------------------------
+Started GET "/customer/show/details" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by CustomerController#details as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 183)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+CustomerControllerTest: test_should_get_new
+-------------------------------------------
+Started GET "/customer/new" for 127.0.0.1 at 2023-02-23 23:17:08 +0530
+Processing by CustomerController#new as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 183)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------
+SpotPolicyTest: test_scope
+--------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_create
+---------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------
+SpotPolicyTest: test_update
+---------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+SpotPolicyTest: test_destroy
+----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------
+SpotPolicyTest: test_show
+-------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:50:01.834272', '2023-02-23 17:50:01.834272', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:50:01.834272', '2023-02-23 17:50:01.834272', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:50:01.842259', '2023-02-23 17:50:01.842259'), (298486374, '2', 4, FALSE, '2023-02-23 17:50:01.842259', '2023-02-23 17:50:01.842259');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:50:01.846225', '2023-02-23 17:50:01.846225', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:50:01.846225', '2023-02-23 17:50:01.846225', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------
+CustomerTest: test_the_truth
+----------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:57:44.430981', '2023-02-23 17:57:44.430981', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:57:44.430981', '2023-02-23 17:57:44.430981', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:57:44.438671', '2023-02-23 17:57:44.438671'), (298486374, '2', 4, FALSE, '2023-02-23 17:57:44.438671', '2023-02-23 17:57:44.438671');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:57:44.442543', '2023-02-23 17:57:44.442543', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:57:44.442543', '2023-02-23 17:57:44.442543', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------
+SpotTest: test_should_not_save_spot_
+------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT `spots`.* FROM `spots` WHERE `spots`.`spots` IS NULL AND `spots`.`vtype` IS NULL LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM `customers`;
+DELETE FROM `spots`;
+DELETE FROM `users`;
+INSERT INTO `customers` (`id`, `vnum`, `vtype`, `entry`, `exit`, `price`, `spots`, `spot_id`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'KA23MF1234', '2', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '1', 1, '2023-02-23 17:59:27.738401', '2023-02-23 17:59:27.738401', 'atestacc95@gmail.com'), (298486374, 'MH12EF2312', '4', '2023-02-08 11:51:18', '2023-02-08 11:51:18', 1.5, '2', 2, '2023-02-23 17:59:27.738401', '2023-02-23 17:59:27.738401', 'ates95@gmail.com');
+INSERT INTO `spots` (`id`, `spots`, `vtype`, `status`, `created_at`, `updated_at`) VALUES (980190962, '1', 2, FALSE, '2023-02-23 17:59:27.749273', '2023-02-23 17:59:27.749273'), (298486374, '2', 4, FALSE, '2023-02-23 17:59:27.749273', '2023-02-23 17:59:27.749273');
+INSERT INTO `users` (`id`, `name`, `password_digest`, `role`, `created_at`, `updated_at`, `email`) VALUES (980190962, 'MyString', 'MyString@123', NULL, '2023-02-23 17:59:27.753948', '2023-02-23 17:59:27.753948', 'example@ex.com'), (298486374, 'MyString', 'MyString@123', NULL, '2023-02-23 17:59:27.753948', '2023-02-23 17:59:27.753948', 'example2@ex.com')[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------
+SpotTest: test_should_not_save_spot_
+------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Load (0.5ms)[0m  [1m[34mSELECT `spots`.* FROM `spots` WHERE `spots`.`spots` IS NULL AND `spots`.`vtype` IS NULL LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
