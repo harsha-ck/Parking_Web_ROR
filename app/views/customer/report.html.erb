@@ -30,7 +30,7 @@
 
 
 <div class="linechart">
-<%= line_chart @vehicles.group_by_day(:created_at).sum(:price), xtitle: "Date", ytitle: "Amount Collected", library: {dateFormat: "yyyy-MM-dd"} %>
+<%= line_chart @vehicles.group_by_day(:exit).sum(:price), xtitle: "Date", ytitle: "Amount Collected", library: {dateFormat: "yyyy-MM-dd"} %>
 </div>
 
 

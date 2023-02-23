@@ -33,35 +33,33 @@ module Api
       end
 
       def check
+        @customer = Customer.find_by(vnum: params[:vnum], exit: nil)
+        # Customer.joins(:Spot).where("vnum = ? and Spots.status = ?", params[:vnum], true).first
+        if @customer.present?
 
-            @customer = Customer.find_by(vnum: params[:vnum], exit: nil)
-            # Customer.joins(:Spot).where("vnum = ? and Spots.status = ?", params[:vnum], true).first
-            if @customer.present?
+          entry_time = @customer.entry
+          @exit_time = Time.now
+          @duration = @exit_time - entry_time
+          @price = if @customer.vtype == '2'
+                     if @duration <= 2.hours
+                       30
+                     else
+                       30 + 20 * ((@duration - 2.hours) / 1.hours).ceil
+                     end
+                   elsif @duration <= 2.hours
+                     50
+                   else
+                     50 + 20 * ((@duration - 2.hours) / 1.hours).ceil
+                   end
+          @customer.update(exit: @exit_time, price: @price)
+          @spot = Spot.find_by(id: @customer.spot_id)
+          @spot.update(status: false)
+          render json: @customer, status: 200
 
-              entry_time = @customer.entry
-              @exit_time = Time.now
-              @duration = @exit_time - entry_time
-              @price = if @customer.vtype == '2'
-                         if @duration <= 2.hours
-                           30
-                         else
-                           30 + 20 * ((@duration - 2.hours) / 1.hours).ceil
-                         end
-                       elsif @duration <= 2.hours
-                         50
-                       else
-                         50 + 20 * ((@duration - 2.hours) / 1.hours).ceil
-                       end
-              @customer.update(exit: @exit_time, price: @price)
-              @spot = Spot.find_by(id: @customer.spot_id)
-              @spot.update(status: false)
-              render json: @customer, status: 200
-
-            else
-              render json: { error: 'Invalid vehicle number or vehicle not Spotted.' }, status: :not_found
-            end
-
+        else
+          render json: { error: 'Invalid vehicle number or vehicle not Spotted.' }, status: :not_found
         end
+      end
 
       private
 

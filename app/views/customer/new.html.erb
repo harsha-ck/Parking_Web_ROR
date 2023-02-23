@@ -87,16 +87,16 @@
 <tbody>
 <tr>
 <td> Two wheeler </td>
-<td> <%= @free_two %></td>
+<td> <%= Spot.free_spots(2) %></td>
 
-<td> <%= @allo_two %> </td>
+<td> <%=  Spot.allocated_spots(2) %> </td>
 <td> ₹30 </td>
 </tr>
  <tr>
  <td> Four wheeler </td>
- <td> <%= @free_four %> </td>
+ <td> <%= Spot.free_spots(4) %> </td>
 
- <td> <%= @allo_four %> </td>
+ <td> <%=  Spot.allocated_spots(4) %> </td>
  <td> ₹50 </td>
  </tr>
 </tbody>
