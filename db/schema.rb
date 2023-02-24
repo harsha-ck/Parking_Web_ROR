@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_070611) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_24_131156) do
   create_table "customers", charset: "utf8mb3", force: :cascade do |t|
     t.string "vnum"
     t.string "vtype"
@@ -34,12 +34,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_070611) do
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
+    t.string "email"
     t.string "name"
-    t.string "password"
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
+    t.string "password_digest"
+    t.string "password"
   end
 
   add_foreign_key "customers", "spots"

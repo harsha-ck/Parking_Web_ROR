@@ -39,7 +39,7 @@ class CustomerController < ApplicationController
         @customer.update(exit: @exit_time, price: @price)
         @spot = Spot.find_by(id: @customer.spot_id)
         @spot.update(status: false)
-        redirect_to customer_path(@customer), notice: 'Customer was successfully checked out.'
+        redirect_to customer_path(@customer), notice: "#{@customer.vnum} was successfully checked out from spot #{@customer.spots}."
         begin
           CustomerMailer.invoice(@customer).deliver_now
         rescue StandardError => e
@@ -83,7 +83,7 @@ class CustomerController < ApplicationController
 
       if @customer.save
         spot.update(status: true)
-        flash[:notice] = 'Checked in successfully.'
+        flash[:notice] = "#{@customer.vnum} Parked in #{@customer.spots} successfully"
         redirect_to new_customer_path
 
       else

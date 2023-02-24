@@ -22,7 +22,7 @@ class SpotsController < ApplicationController
     authorize @spot
     @spot.status = false
     if @spot.save
-      redirect_to @spot, notice: 'Park was successfully created.'
+      redirect_to @spot, notice: " Spot: #{@spot.spots} created successfully ."
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class SpotsController < ApplicationController
   def update
     authorize @spot
     if @spot.update(spots_params)
-      redirect_to @spot, notice: 'Park was successfully updated.'
+      redirect_to @spot, notice: " Spot: #{@spot.spots} was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class SpotsController < ApplicationController
     authorize @spot
     @spot.destroy
 
-    redirect_to spots_path, status: :see_other
+    redirect_to spots_path, status: :see_other, notice: "Spot: #{@spot.spots} was successfully deleted."
   end
 
   def set_spot

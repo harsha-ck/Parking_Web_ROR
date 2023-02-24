@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:userid] = @user.id
       session[:current] = @user.role
-      redirect_to new_customer_path, notice: "Logged in successfully as #{session[:current]}"
+      redirect_to new_customer_path, notice: "Welcome #{@user.name}"
 
     elsif !params[:email].present?
       render :login, status: :unprocessable_entity
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(sess_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: "#{@user.name} was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     @user = User.new(sess_params)
     authorize @user
     if @user.save
-      redirect_to @user, notice: 'Park was successfully created.'
+      redirect_to @user, notice: "#{@user.role} created successfully."
     else
       render :new, status: :unprocessable_entity
     end
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, status: :see_other
+    redirect_to users_path, status: :see_other, notice: "#{@user.role} deleted successfully."
   end
 
   def delete
@@ -86,7 +86,7 @@ class UsersController < ApplicationController
 
   def passedit
     if @user.update(password: params[:password])
-      redirect_to login_path, notice: 'User was successfully updated.'
+      redirect_to login_path, notice: "#{@user.role} updated successfully."
     else
       render :forgot, status: :unprocessable_entity
     end
