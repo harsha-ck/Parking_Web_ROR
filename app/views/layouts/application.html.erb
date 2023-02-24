@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+ <%= javascript_importmap_tags %>
   <head>
    <header>
         <% if !['login','forgot', 'reset', 'passedit'].include?(action_name) %>
@@ -15,10 +16,11 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="/assets/application.css">
-    <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
+
     <%= yield %>
   </body>
 </html>

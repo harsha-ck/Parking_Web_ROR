@@ -19,10 +19,10 @@
 
   </div><br>
     <div>
-      <%= form.label :password_digest, "Password" %><span class='error'>*</span><br>
-      <%= form.password_field :password_digest %>
-      <% @user.errors.full_messages_for(:password_digest).each do |message| %>
-          <br><div class="error">*<%= message.gsub("Password digest", "Password") %></div>
+      <%= form.label :password, "Password" %><span class='error'>*</span><br>
+      <%= form.password_field :password %>
+      <% @user.errors.full_messages_for(:password).each do |message| %>
+          <br><div class="error">*<%= message.gsub("Password", "Password") %></div>
       <% end %>
 
 

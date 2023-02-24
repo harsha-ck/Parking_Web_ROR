@@ -3,9 +3,9 @@
 <%= form_tag reset_path do %>
   <div class="form-group">
       <%= label_tag :password, "New Password" %><br>
-      <%= password_field_tag :password_digest %>
+      <%= password_field_tag :password %>
     </div>
-  <% @users.errors.full_messages_for(:password_digest).each do |message| %>
+  <% @users.errors.full_messages_for(:password).each do |message| %>
     <br><div class="error">*<%= message.gsub("Password digest", "Password") %></div>
   <% end %>
 

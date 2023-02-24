@@ -18,7 +18,7 @@ all records and calculate price according to check in and check out.
 * Model creation
   bin/rails generate model spot spots:string vtype:integer status:boolean
   bin/rails generate model customer vnum:string vtype:string entry:datetime exit:datetime price:float spots:string spot:references
-  bin/rails generate model users uid:integer name:string password_digest:string role:string
+  bin/rails generate model users uid:integer name:string password:string role:string
 
 * Add mailer for customer
   bin/rails generate mailer customer

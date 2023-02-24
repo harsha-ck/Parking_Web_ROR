@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy reset passedit]
   def login
     @user = User.find_by(email: params[:email])
-    if @user && @user.password_digest == params[:password_digest]
+    if @user && @user.authenticate(params[:password])
       session[:userid] = @user.id
       session[:current] = @user.role
       redirect_to new_customer_path, notice: "Logged in successfully as #{session[:current]}"
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
   def reset; end
 
   def passedit
-    if @user.update(password_digest: params[:password_digest])
+    if @user.update(password: params[:password])
       redirect_to login_path, notice: 'User was successfully updated.'
     else
       render :forgot, status: :unprocessable_entity
@@ -99,6 +99,6 @@ class UsersController < ApplicationController
   private
 
   def sess_params
-    params.require(:user).permit(:name, :password_digest, :email, :role)
+    params.require(:user).permit(:name, :password, :email, :role)
   end
 end
