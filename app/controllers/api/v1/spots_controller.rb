@@ -5,6 +5,7 @@ module Api
     class SpotsController < ApplicationController
       skip_before_action :require_login
       skip_before_action :verify_authenticity_token
+      before_action :set_spot, only: %i[show update destroy]
 
       # GET spots /api/v1/spots
       def index
@@ -14,7 +15,7 @@ module Api
 
       # GET show with id Spot /api/v1/spots/:id
       def show
-        @spot = Spot.find(params[:id])
+
         render json: @spot
       end
       #  POST create spot /api/v1/spots
@@ -31,7 +32,7 @@ module Api
       # PUT for update  /api/v1/spots/:id
 
       def update
-        @spot = Spot.find(params[:id])
+
         if @spot.update(spots_params)
           render json: @spot, status: 200
         else
@@ -42,7 +43,7 @@ module Api
       # DELETE spot /api/v1/spots/:id
 
       def destroy
-        @spot = Spot.find_by(id: params[:id])
+
 
         if @spot.present? && @spot.status == false
           if @spot.destroy
@@ -58,6 +59,10 @@ module Api
       def spots_params
         params.require(:spot).permit(:spots, :vtype)
       end
+
+      def set_spot
+          @spot = Spot.find(params[:id])
+        end
     end
   end
 end
