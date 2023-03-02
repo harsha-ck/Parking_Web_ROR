@@ -5,5 +5,4 @@ tmp/pids/server.pid
 .idea/workspace.xml
 .idea/misc.xml
 .idea/
-tmp/
-log/
+
