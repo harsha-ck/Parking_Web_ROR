@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Hello </h2>
+    <h3> Reset Password </h3>
+    <p>Dear <%= @user.name %>,</p>
+    <p> Link to change password: <a href="http://127.0.0.1:3000/reset/<%= @user.id %>/edit"> Reset Password </a>  </p>
+    <p>If you have any questions or concerns, please feel free to contact us.</p>
+    <p>Thank you for your business.</p>
+    <p>Best regards,</p>
+    <p>Your Parking Team</p>
+  </body>
+</html>

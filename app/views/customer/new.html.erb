@@ -1,9 +1,7 @@
 
 <h2> Check in </h2>
 <p class="error"> <%= flash[:alert] %> </p>
-<% if flash[:notice] %>
-  <p style="color:green;">  <%= flash[:notice] %> <p>
-<% end %>
+
 
 <%= form_with model: @customer, url: customer_index_path do |form| %>
 <p class="right"> * Required fields <p>
@@ -87,16 +85,16 @@
 <tbody>
 <tr>
 <td> Two wheeler </td>
-<td> <%= @free_two %></td>
+<td> <%= Spot.free_spots(2) %></td>
 
-<td> <%= @allo_two %> </td>
+<td> <%=  Spot.allocated_spots(2) %> </td>
 <td> ₹30 </td>
 </tr>
  <tr>
  <td> Four wheeler </td>
- <td> <%= @free_four %> </td>
+ <td> <%= Spot.free_spots(4) %> </td>
 
- <td> <%= @allo_four %> </td>
+ <td> <%=  Spot.allocated_spots(4) %> </td>
  <td> ₹50 </td>
  </tr>
 </tbody>

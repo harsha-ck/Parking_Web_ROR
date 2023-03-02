@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
+ <%= javascript_importmap_tags %>
   <head>
    <header>
-        <%= render 'layouts/navbar' %>
+        <% if !['login','forgot', 'reset', 'passedit'].include?(action_name) %>
+            <%= render 'layouts/navbar' %>
+        <% end %>
+
+
 
     </header>
     <title>Parks</title>
@@ -11,10 +16,11 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="/assets/application.css">
-    <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
+   <p style="color:green;"> <%= flash[:notice]%><p>
     <%= yield %>
   </body>
 </html>

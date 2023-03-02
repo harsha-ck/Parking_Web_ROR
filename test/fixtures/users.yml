@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  uid: 1
+  email: example@ex.com
   name: MyString
-  password_digest: MyString
-  role: MyString
+  password_digest: MyString@123
+  role: admin
 
 two:
-  uid: 1
+  email: example2@ex.com
   name: MyString
-  password_digest: MyString
-  role: MyString
+  password_digest: MyString@123
+  role: user

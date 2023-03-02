@@ -13,3 +13,14 @@ development:
   username: mysqluser
   password: Qwerty@123
   host: localhost
+
+test:
+    adapter: mysql2 # install mysql2 to gem
+    encoding: utf8
+    reconnect: false
+    database: Park_test
+    pool: 5
+    username: mysqluser
+    password: Qwerty@123
+    host: localhost
+

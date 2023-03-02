@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem 'mysql2', '~> 0.5.3'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 gem 'will_paginate', '~> 3.1'
 gem 'sidekiq'
 gem 'sidekiq-cron'
@@ -15,11 +15,14 @@ gem 'net-smtp'
 gem 'prawn'
 gem 'groupdate'
 gem 'chartkick'
+gem 'rubocop-rails', '~> 2.17', '>= 2.17.4'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+gem 'whenever', require: false
+gem 'pundit'
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem 'rspec-core'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

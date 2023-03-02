@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-require 'net/smtp'
+#require 'net/smtp'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -48,8 +48,8 @@ config.time_zone = 'Asia/Kolkata'
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            '<your gmail>',
-    password:             '<your password>',
+    user_name:            'example@gmail.com', #your gmail
+    password:             'vgdqce1231', # your app password
     authentication:       'plain',
     enable_starttls_auto:  true
   }

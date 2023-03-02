@@ -14,8 +14,9 @@ Rails.application.routes.draw do
      get "/login", to: "users#login", as: "login"
      post "/login", to: "users#login"
      get "/logout", to: "users#delete", as: "logout"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+     get "/forgot", to: "users#forgot"
+     post "/forgot", to: "users#forgot"
+     get "/reset/:id/edit", to: "users#reset", as: "reset"
+     post "/reset/:id/edit", to: "users#passedit"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

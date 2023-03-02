@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-<% @customersall.each do |customer| %>
+<% @customers.each do |customer| %>
   <tr style="<%= customer.vtype == '2' ? 'background-color: #f2f2f2;' : 'background-color: #ffffff;' %>">
     <td> <%= customer.vnum %> </td>
     <td> <%= customer.vtype %> </td>
@@ -35,6 +35,6 @@
 <br>
 <div class="pagination-container ">
 <div class="pagination">
-<%= will_paginate @customersall %>
+<%= will_paginate @customers %>
 </div>
 </div>
